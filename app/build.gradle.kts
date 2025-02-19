@@ -33,7 +33,7 @@ android {
         debug {
             isMinifyEnabled = false
             isTestCoverageEnabled = true
-                    buildConfigField("String", "YOUTUBE_API_KEY", "\"${project.findProperty("YOUTUBE_API_KEY") ?: ""}\"")
+
         }
     }
     compileOptions {
