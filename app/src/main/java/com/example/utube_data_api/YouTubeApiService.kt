@@ -17,8 +17,8 @@ interface YouTubeApiService {
         @Query("q") query: String,
         @Query("maxResults") maxResults: Int = 10,
         @Query("type") type: String = "video",
-        @Query("pageToken") pageToken: String? = null, // Pagination ke liye
-        @Query("key") apiKey: String =  "AIzaSyDFbWWnS_EZQ99wp9J24yLBUXI4PrnI58o"
+        @Query("pageToken") pageToken: String? = null,
+        @Query("key") apiKey: String =  Google_Console_key
     ):YouTubeSearchResponse
 }
 

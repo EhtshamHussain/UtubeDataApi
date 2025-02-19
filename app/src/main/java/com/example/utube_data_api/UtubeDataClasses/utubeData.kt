@@ -1,6 +1,7 @@
 package com.example.utube_data_api.UtubeDataClasses
 
 import com.google.gson.annotations.SerializedName
+
 data class YouTubeSearchResponse(
     @SerializedName("items") val items :  List<VideoItem>,
     @SerializedName("nextPageToken") val nextPageToken: String? // Add this line

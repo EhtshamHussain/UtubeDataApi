@@ -33,16 +33,15 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 
-
 @Composable
-fun ShimmerListItem(){
+fun ShimmerListItem() {
     val shimmerColors = listOf(
         Color.LightGray.copy(0.6f),
-        Color.LightGray.copy(0.2f) ,
+        Color.LightGray.copy(0.2f),
         Color.LightGray.copy(0.6f)
     )
-    val Transition = rememberInfiniteTransition()
-    val TranslateAnima = Transition.animateFloat(
+    val transition = rememberInfiniteTransition()
+    val translateAnim = transition.animateFloat(
         initialValue = 0f,
         targetValue = 2000f,
         animationSpec = infiniteRepeatable(
@@ -51,12 +50,12 @@ fun ShimmerListItem(){
                 easing = FastOutSlowInEasing
             )
         ),
-        label = "",
+        label = ""
     )
     val brush = Brush.linearGradient(
         colors = shimmerColors,
         start = Offset.Zero,
-        end = Offset(x = TranslateAnima.value , y = TranslateAnima.value)
+        end = Offset(x = translateAnim.value, y = translateAnim.value)
     )
 
     ShimmerItem(brush = brush)
@@ -65,33 +64,29 @@ fun ShimmerListItem(){
 @Composable
 fun ShimmerItem(brush: Brush) {
     Column(
-
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
-        modifier = Modifier.fillMaxSize()
-            .background(brush),
-
+        modifier = Modifier
+            .fillMaxSize()
+            .background(brush)
     ) {
         repeat(3) {
             Box(
                 Modifier
-//                .fillMaxWidth()
                     .width(190.dp)
                     .height(150.dp)
                     .background(brush)
-                    .clip(shape = CircleShape)
+                    .clip(CircleShape)
             )
             Spacer(modifier = Modifier.height(16.dp))
-
             Box(
                 Modifier
                     .fillMaxWidth()
                     .padding(16.dp)
                     .height(30.dp)
                     .background(brush)
-                    .clip(shape = CircleShape)
+                    .clip(CircleShape)
             )
         }
     }
 }
-

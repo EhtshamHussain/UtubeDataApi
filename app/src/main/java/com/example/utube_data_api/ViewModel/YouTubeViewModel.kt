@@ -23,14 +23,15 @@ class YouTubeViewModel : ViewModel() {
     fun searchItems(query: String) {
         if (query.isBlank()) return
 
-        // New search: reset state
-        if (query != currentQuery) {
+        // Check if this is a new search
+        val isNewSearch = query != currentQuery
+        if (isNewSearch) {
             _items.value = emptyList()
             nextPageToken = null
         }
 
         currentQuery = query
-        fetchItems(query, isNewSearch = query != currentQuery)
+        fetchItems(query, isNewSearch = isNewSearch)
     }
 
     private fun fetchItems(query: String, isNewSearch: Boolean) {

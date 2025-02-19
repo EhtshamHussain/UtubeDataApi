@@ -98,13 +98,11 @@ fun YouTubeScreen(viewModel: YouTubeViewModel = viewModel()) {
     }
 }
 
-
 @Composable
 fun VideoItemView(video: VideoItem) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-
             .padding(16.dp)
     ) {
         AsyncImage(
